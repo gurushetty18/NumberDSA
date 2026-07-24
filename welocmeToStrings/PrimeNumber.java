@@ -1,35 +1,35 @@
 package welocmeToStrings;
 
-public class PrimeNumber {
-
-	public static void main(String[] args) {
-		int no = 17;
-
-		boolean flag = true;
-
-		if (no <= 1) {
-			System.out.println("not prime number");
-			return;
-
-		}
-
-		if (no > 1) {
-
-			for (int i = 2; i <= Math.sqrt(no); i++) {
-				if (no % i == 0) {
-					flag = false;
-					break;
-				}
-
-			}
-
-			if (flag) {
-				System.out.println("prime number");
-			} else
-				System.out.println("not prime");
-		}
-	}
-}
+//public class PrimeNumber {
+//
+//	public static void main(String[] args) {
+//		int no = 17;
+//
+//		boolean flag = true;
+//
+//		if (no <= 1) {
+//			System.out.println("not prime number");
+//			return;
+//
+//		}
+//
+//		if (no > 1) {
+//
+//			for (int i = 2; i <= Math.sqrt(no); i++) {
+//				if (no % i == 0) {
+//					flag = false;
+//					break;
+//				}
+//
+//			}
+//
+//			if (flag) {
+//				System.out.println("prime number");
+//			} else
+//				System.out.println("not prime");
+//		}
+//	}
+//}
 
 //                          DSA LEVEL
 //
@@ -64,3 +64,36 @@ public class PrimeNumber {
 //    }
 //}
 //
+
+
+
+
+public class PrimeNumber{
+	
+	public static boolean isPrime(int n) {
+		
+		if (n<=1) return false;
+		if (n<=3)  return true;
+		
+		if (n%2==0 || n %3 == 0) return false;
+		
+		for (int i = 5; i * i <= n; i+=6) {
+			if (n % i == 0 || n % i+2 == 0) {
+				return false;
+				
+			}
+			
+		}
+		return true;
+	}
+	
+	public static void main(String[] args) {
+	
+		if (isPrime(71)) {
+			System.out.println("prime number");
+		}
+		else
+			System.out.println("in not prime number");
+	}
+}
+
