@@ -11,8 +11,8 @@ public class ReverseingAlternativeWord {
 	public static void main(String[] args) {
 		String s = "hello hi mam demo";
 		String[] t = s.split(" ");
-		int i = 0;
-		for (int j = i; j < t.length; j+=2) {
+		
+		for (int j = 0; j < t.length; j+=2) {
 			
 			t[j]=reverse(t[j]);
 			
