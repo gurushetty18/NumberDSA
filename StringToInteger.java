@@ -1,6 +1,7 @@
 package welocmeToStrings;
 
-public class StringToInteger {
+public class StringToInteger
+{
     public static void main(String[] args) {
         // Example string
         String numberStr = "1234";

@@ -1,33 +1,30 @@
 package welocmeToStrings;
 
+import java.util.Stack;
+
 public class Guru {
-	public static String Compression(char[] ch) {
-	    int n = ch.length;
-	    if (n == 0) return "";
-
-	    int j = 0;
-	    int i = 0;
-
-	    while (i < n) {
-	        char present = ch[i];
-	        int count = 0;
-	        while (i < n && ch[i] == present) {
-	            i++;
-	            count++;
-	        }
-	        ch[j++] = present;
-	        if (count > 1) {
-	            for (char c : String.valueOf(count).toCharArray()) {
-	                ch[j++] = c;
-	            }
-	        }
-	    }
-	    return new String(ch, 0, j);
+public static boolean  ValidParenthesis(String ch) {
+	Stack<Character> stack = new Stack<Character>();
+	for (char c : ch.toCharArray()) {
+		if (c == '{' || c=='(' || c == '[') {
+			stack.push(c);
+		}
+		else {
+			if (stack.isEmpty()) return false;
+			char top = stack.pop();
+			if ((c == '}' && top !='{') ||
+					(c == ']' && top !='[') ||
+					(c == ')' && top !='(') 
+					) {
+				return false ;
+			}
+		}
 	}
-
-	public static void main(String[] args) {
-	    char[] a = { 'a', 'a', 'a', 'c', 'c' };
-	    System.out.println(Compression(a)); // Output: a3c2
-	}
-
+	return stack.isEmpty();
+}
+public static void main(String[] args) {
+System.out.println(ValidParenthesis("{}"));
+System.out.println(ValidParenthesis("[)") );
+System.out.println(ValidParenthesis("()"));
+}
 }

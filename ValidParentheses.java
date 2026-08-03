@@ -1,36 +1,35 @@
 package welocmeToStrings;
+
 import java.util.Stack;
 
 public class ValidParentheses {
-    public static boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
+	public static boolean isValid(String s) {
+		Stack<Character> stack = new Stack<>();
 
-        for (char ch : s.toCharArray()) {
-            // Push opening brackets
-            if (ch == '(' || ch == '{' || ch == '[') {
-                stack.push(ch);
-            } 
-            // Check closing brackets
-            else {
-                if (stack.isEmpty()) return false;
-                char top = stack.pop();
-                if ((ch == ')' && top != '(') ||
-                    (ch == '}' && top != '{') ||
-                    (ch == ']' && top != '[')) {
-                    return false;
-                }
-            }
-        }
-        // If stack is empty, all brackets matched
-        return stack.isEmpty();
-    }
+		for (char ch : s.toCharArray()) {
+			// Push opening brackets
+			if (ch == '(' || ch == '{' || ch == '[') {
+				stack.push(ch);
+			}
+			// Check closing brackets
+			else {
+				if (stack.isEmpty())
+					return false;
+				char top = stack.pop();
+				if ((ch == ')' && top != '(') || (ch == '}' && top != '{') || (ch == ']' && top != '[')) {
+					return false;
+				}
+			}
+		}
+		// If stack is empty, all brackets matched
+		return stack.isEmpty();
+	}
 
-    public static void main(String[] args) {
-        System.out.println(isValid("()"));       // true
-        System.out.println(isValid("()[]{}"));   // true
-        System.out.println(isValid("(]"));       // false
-        System.out.println(isValid("([)]"));     // false
-        System.out.println(isValid("{[]}"));     // true
-    }
+	public static void main(String[] args) {
+		System.out.println(isValid("()")); // true
+		System.out.println(isValid("()[]{}")); // true
+		System.out.println(isValid("(]")); // false
+		System.out.println(isValid("([)]")); // false
+		System.out.println(isValid("{[]}")); // true
+	}
 }
-
