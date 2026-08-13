@@ -12,7 +12,10 @@ public class Isomorphic {
 			char c2 = t.charAt(i);
 			if (hm.containsKey(c1)) {
 				if (hm.get(c1) != c2) {
+					
 					return false;
+				}
+				
 				}
 				else
 				{
