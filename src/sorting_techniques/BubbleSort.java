@@ -1,4 +1,4 @@
-package sorting_algorithms;
+package sorting_techniques;
 
 
 
