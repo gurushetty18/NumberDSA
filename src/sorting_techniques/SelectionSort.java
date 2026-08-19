@@ -18,6 +18,7 @@ public static void main(String[] args) {
 		int temp = arr[i];
 		arr[i] = arr[minIndex];
 		arr[minIndex] = temp;
+		
 	}
 	
 	System.out.println(Arrays.toString(arr));
