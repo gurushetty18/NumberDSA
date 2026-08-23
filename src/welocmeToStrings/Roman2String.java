@@ -17,23 +17,30 @@ public class Roman2String {
 		map.put('M', 1000);
 		
 		int res = 0 ;
-		for (int i = roman.length() - 2; i >= 0; i--) {
+		int previous = 0 ;
+		for (int i = roman.length()-1; i >= 0; i--) {
 			
-			if (map.get(roman.charAt(i)) < map.get(roman.charAt(i+1))) {
-				res -= map.get(roman.charAt(i)) ;
+			int value = map.get(roman.charAt(i));
+			if (value < previous) {
+				res-=value;
 			}
 			else {
-				res += map.get(roman.charAt(i)) ;
+				res += value;
 			}
+			previous=value;
 		}
-		res +=map.get(roman.charAt(roman.length()-1));
 		return res ;
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-String roman = "III" ;
-System.out.println(romanToInteger(roman));;
+		
+		 String roman1 = "III";
+	        String roman2 = "LVIII";
+	        String roman3 = "MCMXCIV";
+
+	        System.out.println(romanToInteger(roman1)); 
+	        System.out.println(romanToInteger(roman2)); 
+	        System.out.println(romanToInteger(roman3));
 	}
 
 }
