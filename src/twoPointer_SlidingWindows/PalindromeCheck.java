@@ -2,15 +2,15 @@ package twoPointer_SlidingWindows;
 
 public class PalindromeCheck {
     public static boolean isPalindrome(String word) {
-        int left = 0;
-        int right = word.length() - 1;
+        int start = 0;
+        int end = word.length() - 1;
 
-        while (left < right) {
-            if (word.charAt(left) != word.charAt(right)) {
+        while (start < end ) {
+            if (word.charAt(start) != word.charAt(end)) {
                 return false; // mismatch found
             }
-            left++;
-            right--;
+            start++;
+            end--;
         }
         return true; // all matched
     }
